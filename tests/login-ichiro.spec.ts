@@ -10,7 +10,8 @@ test('test', async ({ page }) => {
   await page.locator('#login-button').click();
  
   // expect
-  await expect(page.locator('#email')).toContainText('ichiro@example.com');
+  await page.getByRole('heading', { name: 'マイページ' }).waitFor();
+  await expect(page.locator('#email')).toContainText('wroing-ichiro@example.com');
   await expect(page.locator('#rank')).toContainText('プレミアム会員');
 
   // logout
