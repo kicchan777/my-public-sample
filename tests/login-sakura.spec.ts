@@ -10,6 +10,7 @@ test('test', async ({ page }) => {
   await page.locator('#login-button').click();
 
   // expect
+  await page.getByRole('heading', { name: 'マイページ' }).waitFor();
   await expect(page.locator('#email')).toContainText('sakura@example.com');
   await expect(page.locator('#rank')).toContainText('一般会員');
 
